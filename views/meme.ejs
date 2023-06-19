@@ -2,23 +2,25 @@
 <html lang="en">
 
 <head>
-  <title>Meme Info</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
-  <link href="../stylesheets/navbar.css" rel="stylesheet">
-  <link rel="stylesheet" href="../stylesheets/meme.css">
+  <title>Memes</title>
+  <!-- BM Chaneg the path to the css files -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link href="../../stylesheets/meme/navbar.css" rel="stylesheet">
+  <link href="../../stylesheets/meme/style.css" rel="stylesheet">
+
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
   <%- include('./partials/navbar.ejs') %>
-    <section class="container">
+    
+  <div data-spy="scroll" data-target="#navbar" data-offset="0">
 
-
-      </div>
-
-
-    </section>
+    <%- include("./partials/meme.ejs", {data: meme})%>
+  
+  </div>
 
     <%- include('./partials/scripts.ejs') %>
+    <script src="./meme.js"></script>
 </body>
 
 </html>

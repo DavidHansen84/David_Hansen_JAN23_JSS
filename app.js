@@ -3,8 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
+var session = require('express-session');
+var JsonStore = require('express-session-json')(session);
 
 var indexRouter = require('./routes/index');
+var memesRouter = require('./routes/memes');
+var loginRouter = require('./routes/login');
+var memeRouter = require('./routes/meme');
 // var highlightsRouter = require('./routes/highlights');
 
 var app = express();
@@ -19,8 +25,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use(express.static(__dirname + '/node_modules/jquery/dist'));
+
+app.use(session({
+  secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    store: new JsonStore()
+}));
+app.use(passport.authenticate("session"));
 
 app.use('/', indexRouter);
+app.use('/memes', memesRouter);
+app.use('/login', loginRouter);
+app.use('/meme', memeRouter);
 // app.use('/highlights', highlightsRouter);
 
 // catch 404 and forward to error handler
