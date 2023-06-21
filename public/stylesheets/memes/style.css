@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 70px;
 }
 
 a {
@@ -10,4 +11,8 @@ a {
 #image {
   height: 20%;
   width: 20%;
+}
+
+.selected {
+  background-color: gray;
 }

@@ -5,20 +5,18 @@ const path = require("path");
 // const { resolve } = require('path');
 // const axios = require('axios');
 
-// Get specific meme details
-router.get('/:memeId', function (req, res, next) {
-    let data = fs.readFileSync(path.resolve(__dirname, "../data/memes.json"));
-    const memes = JSON.parse(data);
-    const memeId = req.params.memeId;
-  
-    const meme = memes.find((meme) => meme.id === memeId);
-    if (!meme) {
-      // Handle error if meme with the given ID is not found
-      res.status(404).send('Meme not found');
-      return;
-    }
-  
-    res.render('meme', { title: 'Meme', meme });
-  });
-  
-  module.exports = router;
+// Get meme page
+router.get('/', function (req, res, next) {
+  let data = fs.readFileSync(path.resolve(__dirname, "../data/meme.json"));
+  let jsonData = JSON.parse(data)
+  let meme = jsonData[0];
+  console.log(meme)
+  if(!req.user) {
+    res.render('meme', { title: 'Meme', meme: meme, user: null});
+  } else {
+    res.render('meme', { title: 'Meme', meme: meme, user: req.user})
+  }
+});
+
+
+module.exports = router;

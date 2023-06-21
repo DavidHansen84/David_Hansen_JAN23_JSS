@@ -2,17 +2,23 @@
 <html lang="en">
 
 <head>
-  <title>login</title>
+  <title>Login</title>
   <!-- BM Chaneg the path to the css files -->
   <link rel="stylesheet" href="../../css/bootstrap.min.css" />
-  <link href="../../stylesheets/login/navbar.css" rel="stylesheet">
-  <link href="../../stylesheets/login/style.css" rel="stylesheet">
+  <link href="../../stylesheets/meme/navbar.css" rel="stylesheet">
+  <link href="../../stylesheets/meme/style.css" rel="stylesheet">
 
 </head>
+
 <body class="position-relative" data-bs-spy="scroll">
-    <%- include('./partials/navbar.ejs') %>
-    <h1>Login</h1>
- 
+  <%- include('./partials/navbar.ejs') %>
+    
+  <div data-spy="scroll" data-target="#navbar" data-offset="0">
+
+    <%- include("./partials/login.ejs")%>
+  
+  </div>
+
     <%- include('./partials/scripts.ejs') %>
 </body>
 

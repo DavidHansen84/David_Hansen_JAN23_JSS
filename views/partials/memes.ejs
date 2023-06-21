@@ -4,7 +4,9 @@
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Image</th>
-        <th scope="col">Details</th>
+        <% if (user) { %>
+          <th scope="col">Details</th>
+          <% } %>
       </tr>
     </thead>
     <tbody>
@@ -12,9 +14,15 @@
       <tr>
         <th scope="row"><%= meme.name %></th>
         <td><img id="image" src="<%= meme.url %>" alt="Meme <%= meme.name %> picture"></td>
-        <td><input type="button" onclick="location.href='/meme/<%= meme.id %>';" value="Details" /></td>
-      </tr>
+        <td>
+          <% if (user) { %>
+           <td>
+            <button onclick="updateMeme('<%= meme.id %>', this)" data-meme-id="<%= meme.id %>">Details</button>
+          </td>
+        </tr>
+        <% } %>
     <% }); %>
     </tbody>
   </table>
+  
 </section>
