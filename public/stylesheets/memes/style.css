@@ -16,3 +16,17 @@ a {
 .selected {
   background-color: gray;
 }
+
+#memeInput {
+  width: 80%; 
+  font-size: 16px; 
+  border: 1px solid #ddd; 
+  margin-bottom: 12px; 
+}
+
+#memeTable {
+  border-collapse: collapse; 
+  width: 100%; 
+  border: 1px solid #ddd; 
+  font-size: 18px; 
+}

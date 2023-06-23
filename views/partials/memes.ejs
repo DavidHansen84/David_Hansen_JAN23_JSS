@@ -1,5 +1,11 @@
 <section id="memes" class="container">
-  <table class="table" id="table">
+  <form onsubmit="event.preventDefault();"> <!-- Prevent form submission -->
+    <input type="text" id="memeInput" placeholder="Search for memes.." title="Type in a name"> 
+    <button onclick="search()">Search</button>
+  </form>
+
+
+  <table class="table" id="memeTable">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -10,9 +16,10 @@
       </tr>
     </thead>
     <tbody>
+      
     <% memes.forEach(function(meme){ %>
       <tr>
-        <th scope="row"><%= meme.name %></th>
+        <td><%= meme.name %></td>
         <td><img id="image" src="<%= meme.url %>" alt="Meme <%= meme.name %> picture"></td>
         <td>
           <% if (user) { %>
@@ -26,3 +33,4 @@
   </table>
   
 </section>
+

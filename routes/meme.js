@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
   let meme = jsonData[0];
   console.log(meme)
   if(!req.user) {
-    res.render('meme', { title: 'Meme', meme: meme, user: null});
+    res.redirect("/login")
   } else {
     res.render('meme', { title: 'Meme', meme: meme, user: req.user})
   }
