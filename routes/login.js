@@ -17,7 +17,7 @@ passport.deserializeUser(function(user, cb) {
   });
 });
 
-// Verifying if username and password is correct and if they are login user in
+// Verifying if username and password is correct 
 passport.use(
   new LocalStrategy(function verify(username, password, cb) {
     let usersArray = JSON.parse(
@@ -36,6 +36,7 @@ passport.use(
   })
 );
 
+// If successfull login redirect to memes. I not the login page
 router.post('/password', passport.authenticate('local', {
   successReturnToOrRedirect: '/memes',
   failureRedirect: '/login'

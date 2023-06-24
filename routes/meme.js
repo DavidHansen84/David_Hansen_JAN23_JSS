@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 const fs = require("fs");
 const path = require("path");
-// const { resolve } = require('path');
-// const axios = require('axios');
 
 // Get meme page
 router.get('/', function (req, res, next) {
@@ -12,11 +10,11 @@ router.get('/', function (req, res, next) {
   let meme = jsonData[0];
   console.log(meme)
   if(!req.user) {
+    // If not a user redirect to the login page
     res.redirect("/login")
   } else {
     res.render('meme', { title: 'Meme', meme: meme, user: req.user})
   }
 });
-
 
 module.exports = router;

@@ -16,12 +16,14 @@
       </tr>
     </thead>
     <tbody>
-      
+      <!-- Creating a table for all memes -->
     <% memes.forEach(function(meme){ %>
       <tr>
         <td><%= meme.name %></td>
         <td><img id="image" src="<%= meme.url %>" alt="Meme <%= meme.name %> picture"></td>
         <td>
+
+          <!-- Only logged in users can see the details! -->
           <% if (user) { %>
            <td>
             <button onclick="updateMeme('<%= meme.id %>', this)" data-meme-id="<%= meme.id %>">Details</button>

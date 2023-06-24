@@ -19,13 +19,17 @@ function highlight(button) {
   parent.style.background = 'gray';
 }
 
+// Used a variety of sites for this, https://stackoverflow.com/questions/46224051/how-keep-same-table-cell-highlighted-after-page-refresh
+// https://live.datatables.net/caqukow/1/edit
+// https://dakotaleemartinez.com/tutorials/how-to-add-active-highlight-to-table-of-contents/
+// Feel like I overcomplicated things a little but it worked 
+
 function storeHighlightedMeme(memeId) {
   const storedMemeIds = localStorage.getItem('highlightedMemeIds');
   let memeIds = storedMemeIds ? JSON.parse(storedMemeIds) : [];
   memeIds.push(memeId); // Add the highlighted meme ID to the array
   localStorage.setItem('highlightedMemeIds', JSON.stringify(memeIds)); // Store the updated array in localStorage
 }
-
 
 window.addEventListener('DOMContentLoaded', () => {
   const storedMemeIds = localStorage.getItem('highlightedMemeIds');

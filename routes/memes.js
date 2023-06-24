@@ -36,8 +36,6 @@ router.get('/', function (req, res, next) {
   };
 });
 
-
-
 // Update meme.json with the selected meme
 router.post('/:memeId', function (req, res, next) {
   const memeId = req.params.memeId;

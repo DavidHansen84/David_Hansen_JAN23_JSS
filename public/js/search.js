@@ -1,3 +1,5 @@
+// used https://www.w3schools.com/howto/howto_js_filter_table.asp
+
 function search() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("memeInput");

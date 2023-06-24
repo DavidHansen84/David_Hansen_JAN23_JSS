@@ -12,7 +12,6 @@ var memesRouter = require('./routes/memes');
 var loginRouter = require('./routes/login');
 var memeRouter = require('./routes/meme');
 var usersRouter = require('./routes/users')
-// var highlightsRouter = require('./routes/highlights');
 
 var app = express();
 
@@ -41,7 +40,7 @@ app.use('/memes', memesRouter);
 app.use('/login', loginRouter);
 app.use('/meme', memeRouter);
 app.use('/users', usersRouter)
-// app.use('/highlights', highlightsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
